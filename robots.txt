@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap (ЗАМІНІТЬ домен на свій)
+Sitemap: https://dentalux.com.ua/sitemap.xml

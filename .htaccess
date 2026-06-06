@@ -1,0 +1,77 @@
+# ============================================================
+#  ДентаЛюкс — конфігурація Apache
+#  HTTPS · 404 · security headers · gzip · кеш
+# ============================================================
+
+# ----- Кодування за замовчуванням -----
+AddDefaultCharset UTF-8
+
+# ----- Сторінка 404 -----
+ErrorDocument 404 /404.html
+
+# ============================================================
+#  Примусовий HTTPS + www -> без www (за бажанням)
+# ============================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Примусовий HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Прибрати www (розкоментуйте, якщо потрібно)
+    # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    # RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ============================================================
+#  Security headers
+# ============================================================
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    # HSTS — вмикайте лише після перевірки, що HTTPS працює стабільно
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+    # Прибрати зайву інформацію про сервер
+    Header unset X-Powered-By
+</IfModule>
+
+# ============================================================
+#  GZIP стиснення
+# ============================================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE application/json application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE font/ttf font/otf font/woff font/woff2 application/font-woff
+</IfModule>
+
+# ============================================================
+#  Кешування у браузері
+# ============================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# ============================================================
+#  Захист службових файлів
+# ============================================================
+<FilesMatch "(^\.htaccess|\.(htpasswd|ini|log|sh|bak))$">
+    Require all denied
+</FilesMatch>
+
+# ----- Прибрати лістинг директорій -----
+Options -Indexes

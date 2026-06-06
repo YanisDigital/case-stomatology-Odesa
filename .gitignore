@@ -1,0 +1,13 @@
+# Dev / editor
+.claude/
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Python (dev tooling for asset generation)
+__pycache__/
+*.pyc
