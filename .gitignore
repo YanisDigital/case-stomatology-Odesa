@@ -11,3 +11,10 @@ desktop.ini
 # Python (dev tooling for asset generation)
 __pycache__/
 *.pyc
+
+# Original source images (optimized web copies are used on the site)
+assets/img/2026.06.11*.jpg
+assets/img/dioboada-tooth-*.png
+assets/img/mohamed_hassan-tooth-*.png
+assets/img/pexels-nadezhda-moryak-*.jpg
+assets/img/pexels-gustavo-*.jpg

@@ -134,11 +134,20 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .hero__stats strong { font-family: var(--font-display); font-size: 1.7rem; color: var(--teal-600); line-height: 1; }
 .hero__stats span { font-size: .85rem; color: var(--muted); margin-top: 6px; }
 
-/* hero visual card */
-.hero__visual { display: flex; justify-content: center; }
+/* hero visual: doctor photo + floating card */
+.hero__visual { position: relative; display: flex; justify-content: center; }
+.hero__photo {
+  position: relative; max-width: 400px; border-radius: var(--radius); overflow: hidden;
+  border: 5px solid #fff; box-shadow: var(--shadow-lg);
+}
+.hero__photo::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(10, 122, 117, .18));
+}
+.hero__photo img { width: 100%; height: auto; }
 .hero__card {
-  position: relative; width: 100%; max-width: 320px; background: #fff; border-radius: var(--radius);
-  padding: 38px 30px; text-align: center; box-shadow: var(--shadow-lg); border: 1px solid var(--line);
+  position: absolute; left: -8px; bottom: -26px; width: 250px; background: #fff; border-radius: var(--radius);
+  padding: 24px 22px; text-align: center; box-shadow: var(--shadow-lg); border: 1px solid var(--line);
   animation: float 5s ease-in-out infinite;
 }
 .hero__card::before {
@@ -147,9 +156,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
 }
-.hero__card-icon { display: grid; place-items: center; width: 78px; height: 78px; margin: 0 auto 18px; border-radius: 22px; color: var(--teal-600); background: var(--mint-100); }
-.hero__card-title { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin-bottom: 8px; }
-.hero__card-sub { font-size: .92rem; color: var(--muted); }
+.hero__card-icon { display: grid; place-items: center; width: 62px; height: 62px; margin: 0 auto 14px; border-radius: 18px; color: var(--teal-600); background: var(--mint-100); }
+.hero__card-icon svg { width: 32px; height: 32px; }
+.hero__card-title { font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; margin-bottom: 6px; }
+.hero__card-sub { font-size: .86rem; color: var(--muted); }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
 /* ---------- sections ---------- */
@@ -163,6 +173,23 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .section__title { font-size: clamp(1.8rem, 4vw, 2.7rem); }
 .section__lead { margin-top: 18px; color: var(--ink-soft); font-size: 1.08rem; }
 
+/* about media gallery */
+.about-media {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 26px;
+  max-width: 860px; margin: 0 auto 64px;
+}
+.about-media__item {
+  position: relative; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-md); border: 4px solid #fff;
+}
+.about-media__item img { width: 100%; height: 330px; object-fit: cover; display: block; }
+.about-media__item figcaption {
+  position: absolute; left: 14px; right: 14px; bottom: 14px;
+  padding: 10px 16px; border-radius: 12px; font-weight: 700; font-size: .85rem;
+  color: var(--teal-700); background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(6px); box-shadow: var(--shadow-sm);
+}
+
 /* services grid */
 .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .service-card {
@@ -173,6 +200,16 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .service-card__icon { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 16px; color: var(--teal-600); background: var(--mint-100); margin-bottom: 18px; }
 .service-card h3 { font-size: 1.18rem; margin-bottom: 10px; }
 .service-card p { color: var(--muted); font-size: .96rem; }
+
+/* kids card with mascot art */
+.service-card--kids { position: relative; overflow: hidden; }
+.service-card--kids p { position: relative; max-width: 75%; }
+.service-card__art {
+  position: absolute; right: -26px; bottom: -20px; width: 130px; height: auto;
+  transform: rotate(-8deg); opacity: .9; pointer-events: none;
+  transition: transform .3s ease;
+}
+.service-card--kids:hover .service-card__art { transform: rotate(0deg) scale(1.06); }
 
 /* features */
 .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
@@ -187,6 +224,20 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .contacts__meta { margin-top: 28px; display: grid; gap: 14px; }
 .contacts__meta li { display: flex; align-items: center; gap: 12px; color: var(--ink-soft); font-weight: 600; }
 .contacts__meta svg { color: var(--teal-500); flex: none; }
+
+/* contacts: administrator card */
+.contacts__person {
+  display: flex; align-items: center; gap: 16px; margin-top: 28px;
+  padding: 16px 20px; border-radius: var(--radius-sm);
+  background: var(--mint-50); border: 1px solid var(--line); max-width: 440px;
+}
+.contacts__person img {
+  width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+  border: 3px solid #fff; box-shadow: var(--shadow-sm); flex: none;
+}
+.contacts__person-text { display: flex; flex-direction: column; gap: 2px; }
+.contacts__person-text strong { font-size: .98rem; }
+.contacts__person-text span { font-size: .86rem; color: var(--muted); }
 
 .contacts__channels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .channel {
@@ -224,11 +275,15 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .hero__inner { grid-template-columns: 1fr; gap: 36px; }
-  .hero__visual { order: -1; }
-  .hero__card { animation: none; max-width: 280px; }
+  .hero__visual { order: -1; margin-bottom: 26px; }
+  .hero__photo { max-width: 340px; }
+  .hero__card { animation: none; left: 50%; transform: translateX(-50%); bottom: -34px; width: 240px; padding: 18px 20px; }
+  .hero__card-icon { width: 52px; height: 52px; border-radius: 14px; margin-bottom: 10px; }
   .services { grid-template-columns: repeat(2, 1fr); }
   .features { grid-template-columns: repeat(2, 1fr); }
   .contacts { grid-template-columns: 1fr; gap: 32px; }
+  .about-media { gap: 18px; margin-bottom: 52px; }
+  .about-media__item img { height: 250px; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }

@@ -47,7 +47,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <!-- ===== Styles ===== -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- ?v= — версія для скидання кешу браузера після оновлень -->
+  <link rel="stylesheet" href="assets/css/style.css?v=3" />
 
   <!-- ===== Structured data: LocalBusiness ===== -->
   <script type="application/ld+json">
@@ -134,7 +135,12 @@
           </ul>
         </div>
 
-        <div class="hero__visual" aria-hidden="true">
+        <div class="hero__visual">
+          <div class="hero__photo">
+            <img src="assets/img/doctor-1.jpg" width="568" height="683"
+                 alt="Лікар-стоматолог клініки ДентаЛюкс" data-i18n-alt="alt_doctor1"
+                 fetchpriority="high" />
+          </div>
           <div class="hero__card">
             <span class="hero__card-icon">
               <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor"><path d="M12 2C8.5 2 7 4 4.8 4 3 4 2 5.6 2 8.4c0 3.2 1.2 6.4 2.3 9.4.7 1.9 1.3 4 2.6 4 1.5 0 1.5-3 2.4-5 .3-.7.8-1.1 1.7-1.1s1.4.4 1.7 1.1c.9 2 .9 5 2.4 5 1.3 0 1.9-2.1 2.6-4 1.1-3 2.3-6.2 2.3-9.4C22 5.6 21 4 19.2 4 17 4 15.5 2 12 2Z"/></svg>
@@ -153,6 +159,19 @@
           <span class="eyebrow" data-i18n="about_eyebrow">Про нас</span>
           <h2 class="section__title" data-i18n="about_title">Стоматологія повного циклу в серці Одеси</h2>
           <p class="section__lead" data-i18n="about_lead">Ми поєднуємо досвідчених лікарів, сучасне обладнання та індивідуальний підхід до кожного пацієнта. Від профілактики до складної імплантації — усе в одному місці.</p>
+        </div>
+
+        <div class="about-media">
+          <figure class="about-media__item">
+            <img src="assets/img/clinic-xray.jpg" width="900" height="1350" loading="lazy"
+                 alt="Лікарі ДентаЛюкс аналізують рентгенівський знімок" data-i18n-alt="alt_xray" />
+            <figcaption data-i18n="about_ph1">Цифрова діагностика та чіткий план лікування</figcaption>
+          </figure>
+          <figure class="about-media__item">
+            <img src="assets/img/clinic-care.jpg?v=2" width="900" height="809" loading="lazy"
+                 alt="Делікатне лікування зубів у клініці ДентаЛюкс" data-i18n-alt="alt_treatment" />
+            <figcaption data-i18n="about_ph2">Делікатне лікування на сучасному обладнанні</figcaption>
+          </figure>
         </div>
 
         <div class="services">
@@ -188,12 +207,14 @@
             <p data-i18n="srv4_d">Професійна чистка, видалення нальоту й каменю, безпечне відбілювання усмішки.</p>
           </article>
 
-          <article class="service-card">
+          <article class="service-card service-card--kids">
             <span class="service-card__icon">
               <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-4.35-9-8.5C1.5 9 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 22.5 9 21 12.5 18.5 16.65 12 21 12 21Z"/></svg>
             </span>
             <h3 data-i18n="srv5_t">Дитяча стоматологія</h3>
             <p data-i18n="srv5_d">Дбайливі дитячі лікарі, лікування без стресу та формування здорової звички з дитинства.</p>
+            <img class="service-card__art" src="assets/img/tooth-rope.png" width="640" height="612"
+                 loading="lazy" alt="" aria-hidden="true" />
           </article>
 
           <article class="service-card">
@@ -258,6 +279,15 @@
                 <span data-i18n="contacts_hours">Пн–Сб: 9:00–20:00 · Нд: вихідний</span>
               </li>
             </ul>
+
+            <div class="contacts__person">
+              <img src="assets/img/doctor-2.jpg" width="515" height="575" loading="lazy"
+                   alt="Адміністратор клініки ДентаЛюкс" data-i18n-alt="alt_doctor2" />
+              <div class="contacts__person-text">
+                <strong data-i18n="person_name">Адміністратор клініки</strong>
+                <span data-i18n="person_desc">Відповість на питання та підбере зручний час візиту</span>
+              </div>
+            </div>
           </div>
 
           <div class="contacts__channels">
@@ -324,6 +354,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=2"></script>
 </body>
 </html>

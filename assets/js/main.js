@@ -53,6 +53,14 @@
       contacts_lead: "Зателефонуйте або напишіть нам у зручний месенджер — ми підберемо найкращий час для вашого візиту.",
       contacts_address: "м. Одеса, вул. Прикладна, 1",
       contacts_hours: "Пн–Сб: 9:00–20:00 · Нд: вихідний",
+      person_name: "Адміністратор клініки",
+      person_desc: "Відповість на питання та підбере зручний час візиту",
+      about_ph1: "Цифрова діагностика та чіткий план лікування",
+      about_ph2: "Делікатне лікування на сучасному обладнанні",
+      alt_doctor1: "Лікар-стоматолог клініки ДентаЛюкс",
+      alt_doctor2: "Адміністратор клініки ДентаЛюкс",
+      alt_xray: "Лікарі ДентаЛюкс аналізують рентгенівський знімок",
+      alt_treatment: "Делікатне лікування зубів у клініці ДентаЛюкс",
       ch_phone: "Телефон",
       ch_phone_v: "+38 (0XX) XXX-XX-XX",
       ch_write: "Написати у чат",
@@ -108,6 +116,14 @@
       contacts_lead: "Позвоните или напишите нам в удобный мессенджер — мы подберём лучшее время для вашего визита.",
       contacts_address: "г. Одесса, ул. Прикладная, 1",
       contacts_hours: "Пн–Сб: 9:00–20:00 · Вс: выходной",
+      person_name: "Администратор клиники",
+      person_desc: "Ответит на вопросы и подберёт удобное время визита",
+      about_ph1: "Цифровая диагностика и чёткий план лечения",
+      about_ph2: "Деликатное лечение на современном оборудовании",
+      alt_doctor1: "Врач-стоматолог клиники ДентаЛюкс",
+      alt_doctor2: "Администратор клиники ДентаЛюкс",
+      alt_xray: "Врачи ДентаЛюкс анализируют рентгеновский снимок",
+      alt_treatment: "Деликатное лечение зубов в клинике ДентаЛюкс",
       ch_phone: "Телефон",
       ch_phone_v: "+38 (0XX) XXX-XX-XX",
       ch_write: "Написать в чат",
@@ -148,6 +164,12 @@
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
       if (dict[key] != null) el.textContent = dict[key];
+    });
+
+    // alt-атрибути зображень
+    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-alt");
+      if (dict[key] != null) el.setAttribute("alt", dict[key]);
     });
 
     // спец-обробка заголовка hero (акцент на останньому слові)
@@ -199,7 +221,7 @@
 
   /* ---------- reveal on scroll ---------- */
   function initReveal() {
-    var targets = document.querySelectorAll(".service-card, .feature, .channel, .section__head, .hero__card");
+    var targets = document.querySelectorAll(".service-card, .feature, .channel, .section__head, .about-media__item");
     targets.forEach(function (el) { el.classList.add("reveal"); });
 
     if (!("IntersectionObserver" in window)) {
