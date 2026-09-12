@@ -15,6 +15,14 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # ----- Блокування службових файлів і каталогів, що починаються з крапки -----
+    # Закриває .git, .claude, .gitignore, .env тощо.
+    # Без цього правила заливка папки проєкту по FTP робить усю історію
+    # репозиторію доступною за адресою /.git/ (див. git-dumper).
+    # Виняток — /.well-known/, він потрібен для випуску SSL-сертифікатів.
+    RewriteCond %{REQUEST_URI} !^/\.well-known/
+    RewriteRule "(^|/)\." - [F,L]
+
     # Примусовий HTTPS
     RewriteCond %{HTTPS} off
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -32,6 +40,12 @@ ErrorDocument 404 /404.html
     Header always set X-Frame-Options "SAMEORIGIN"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    # Content-Security-Policy.
+    # Сайт статичний: власні CSS/JS + шрифти Google. Сторонніх скриптів немає.
+    # 'unsafe-inline' у style-src потрібен лише через інлайновий <style> у 404.html
+    # (сторінка навмисно самодостатня). У script-src інлайн НЕ дозволено.
+    # Якщо додасте аналітику (GA4) чи піксель — допишіть їхні домени сюди.
+    Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; img-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; upgrade-insecure-requests"
     # HSTS — вмикайте лише після перевірки, що HTTPS працює стабільно
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
     # Прибрати зайву інформацію про сервер
