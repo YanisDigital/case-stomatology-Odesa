@@ -4,11 +4,20 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dentalux.com.ua/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="uk" href="https://dentalux.com.ua/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalux.com.ua/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalux.com.ua/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dentalux.com.ua/" />
+  </url>
+  <url>
+    <loc>https://dentalux.com.ua/ru/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://dentalux.com.ua/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://dentalux.com.ua/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dentalux.com.ua/" />
   </url>
 </urlset>
