@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Sitemap (ЗАМІНІТЬ домен на свій)
-Sitemap: https://dentalux.com.ua/sitemap.xml
+# Sitemap (демо-домен GitHub Pages; замініть на свій при переїзді на бойовий хостинг)
+Sitemap: https://yanisdigital.github.io/case-stomatology-Odesa/sitemap.xml
