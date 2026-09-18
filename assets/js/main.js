@@ -18,7 +18,7 @@
   /* ---------- поява блоків під час прокрутки ---------- */
   function initReveal() {
     var targets = document.querySelectorAll(
-      ".service-card, .feature, .channel, .section__head, .about-media__item"
+      ".service-card, .feature, .channel, .section__head, .about-media__item, .faq__item"
     );
     if (!targets.length) return;
 
