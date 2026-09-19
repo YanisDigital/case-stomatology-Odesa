@@ -139,8 +139,43 @@
     update();
   }
 
+  /* ---------- демо-режим (портфоліо) ----------
+     data-demo на <html> вмикає режим. Контакти в розмітці справжні
+     (для бойового запуску достатньо прибрати атрибут), але поки
+     сайт демонстраційний, клік не веде на номери-заглушки й чужі
+     акаунти — натомість з'являється повідомлення. Текст береться
+     з data-toast банера, тож він уже потрібною мовою. */
+  function initDemo() {
+    if (!document.documentElement.hasAttribute("data-demo")) return;
+
+    var banner = document.querySelector(".demo-banner");
+    var message = (banner && banner.getAttribute("data-toast")) || "Demo";
+
+    var toast = document.createElement("div");
+    toast.className = "demo-toast";
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
+    document.body.appendChild(toast);
+
+    var hideTimer = null;
+    function show() {
+      toast.textContent = message;
+      toast.classList.add("is-shown");
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () { toast.classList.remove("is-shown"); }, 2600);
+    }
+
+    document.querySelectorAll("[data-contact]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        show();
+      });
+    });
+  }
+
   /* ---------- init ---------- */
   document.addEventListener("DOMContentLoaded", function () {
+    initDemo();
     initReveal();
     initCounters();
     initHeader();

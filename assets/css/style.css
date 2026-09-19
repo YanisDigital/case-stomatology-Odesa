@@ -368,6 +368,36 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .footer__note { font-size: .82rem; color: #6f928f; }
 
 /* =========================================================
+   ДЕМО-РЕЖИМ (портфоліо)
+   Вмикається атрибутом data-demo на <html>. Прибрали атрибут —
+   зникли банер, позначка «вигадано», а контакти знову працюють.
+   ========================================================= */
+:root { --demo-h: 38px; }
+.demo-banner, .demo-note, .demo-toast { display: none; }
+
+html[data-demo] .demo-banner {
+  display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  padding: 10px 16px; text-align: center;
+  font-size: .78rem; line-height: 1.4; letter-spacing: .01em;
+  color: #e6f6f4; background: var(--teal-700);
+  border-top: 1px solid rgba(255, 255, 255, .14);
+}
+/* футер не ховається під банером */
+html[data-demo] .site-footer { padding-bottom: calc(40px + var(--demo-h)); }
+html[data-demo] .demo-note { display: inline; font-weight: 500; color: var(--muted); }
+
+/* повідомлення при кліку на неактивний контакт */
+html[data-demo] .demo-toast {
+  display: block; position: fixed; left: 50%; bottom: calc(var(--demo-h) + 18px); z-index: 70;
+  max-width: calc(100% - 32px); padding: 12px 20px; border-radius: 100px;
+  font-weight: 700; font-size: .9rem; color: #fff; background: var(--ink);
+  box-shadow: var(--shadow-lg); pointer-events: none;
+  opacity: 0; transform: translate(-50%, 12px);
+  transition: opacity .3s var(--ease-out), transform .3s var(--ease-out);
+}
+html[data-demo] .demo-toast.is-shown { opacity: 1; transform: translate(-50%, 0); }
+
+/* =========================================================
    МОТОРИКА
    Анімуємо лише transform та opacity — їх обробляє композитор,
    тож макет не перераховується і немає ривків.
@@ -446,6 +476,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   .contacts__channels { grid-template-columns: 1fr; }
   .btn { flex: 1; justify-content: center; }
   .hero__actions { width: 100%; }
+  :root { --demo-h: 52px; } /* на телефоні текст банера — у два рядки */
+  html[data-demo] .demo-banner { font-size: .72rem; padding: 9px 14px; }
   .faq__item { padding: 2px 18px; }
   .faq__q { font-size: .95rem; gap: 12px; padding: 17px 0; }
 }

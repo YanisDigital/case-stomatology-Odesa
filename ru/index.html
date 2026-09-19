@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-demo>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,9 @@
   <title>Стоматология в Одессе — ДентаЛюкс | Имплантация, гигиена</title>
   <meta name="description" content="Стоматология в Одессе: лечение без боли, имплантация, протезирование, детская стоматология. Бесплатная консультация. Звоните: +38 (0XX) XXX-XX-XX" />
   <meta name="keywords" content="стоматология Одесса, стоматолог Одесса, имплантация зубов Одесса, лечение зубов Одесса, протезирование Одесса, детская стоматология Одесса" />
-  <meta name="robots" content="index, follow" />
+  <!-- Демо / портфоліо: вигадана клініка — тримаємо сторінку поза пошуком.
+       Для бойового запуску: index, follow + приберіть data-demo з <html>. -->
+  <meta name="robots" content="noindex, nofollow" />
   <meta name="author" content="ДентаЛюкс" />
   <meta name="theme-color" content="#0fb9b1" />
 
@@ -48,7 +50,7 @@
 
   <!-- ===== Styles ===== -->
   <!-- ?v= — версия для сброса кеша браузера после обновлений -->
-  <link rel="stylesheet" href="../assets/css/style.css?v=5" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=6" />
 
   <!-- ===== Structured data: LocalBusiness ===== -->
   <script type="application/ld+json">
@@ -92,7 +94,7 @@
       </a>
 
       <div class="header__right">
-        <a class="header__cta" data-tel-link href="tel:+380000000000">Записаться</a>
+        <a class="header__cta" data-contact href="tel:+380000000000">Записаться</a>
         <div class="lang-switch" role="group" aria-label="Переключатель языка">
           <a href="../" class="lang-btn">UA</a>
           <a href="./" class="lang-btn is-active" aria-current="page">RU</a>
@@ -121,7 +123,7 @@
           <p class="hero__slogan">Современное лечение без боли, бережное отношение и честные цены. Заботимся о вашей улыбке каждый день.</p>
 
           <div class="hero__actions">
-            <a class="btn btn--primary" data-tel-link href="tel:+380000000000">
+            <a class="btn btn--primary" data-contact href="tel:+380000000000">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
               <span>Позвонить</span>
             </a>
@@ -333,7 +335,7 @@
             <ul class="contacts__meta">
               <li>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>г. Одесса, ул. Прикладная, 1</span>
+                <span>г. Одесса, ул. Прикладная, 1 <span class="demo-note">· адрес вымышлен</span></span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
@@ -353,7 +355,7 @@
 
           <div class="contacts__channels">
             <!-- Телефон -->
-            <a class="channel channel--phone" data-tel-link href="tel:+380000000000">
+            <a class="channel channel--phone" data-contact href="tel:+380000000000">
               <span class="channel__icon">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
               </span>
@@ -364,7 +366,7 @@
             </a>
 
             <!-- Telegram -->
-            <a class="channel channel--tg" href="https://t.me/yourchannel" target="_blank" rel="noopener">
+            <a class="channel channel--tg" data-contact href="https://t.me/yourchannel" target="_blank" rel="noopener">
               <span class="channel__icon">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M21.94 4.6 18.6 20.3c-.25 1.1-.9 1.37-1.83.85l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1 .5l.36-5.1 9.3-8.4c.4-.36-.09-.56-.62-.2L5.55 13.2.6 11.65c-1.08-.34-1.1-1.08.22-1.6l19.2-7.4c.9-.33 1.68.2 1.42 1.95Z"/></svg>
               </span>
@@ -375,7 +377,7 @@
             </a>
 
             <!-- Viber -->
-            <a class="channel channel--viber" href="viber://chat?number=%2B380000000000" target="_blank" rel="noopener">
+            <a class="channel channel--viber" data-contact href="viber://chat?number=%2B380000000000" target="_blank" rel="noopener">
               <span class="channel__icon">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 1C6.5 1 2 4.9 2 9.7c0 2.6 1.3 4.9 3.4 6.5v3.9l3.5-2c1 .2 2 .3 3.1.3 5.5 0 10-3.9 10-8.7S17.5 1 12 1Zm5.5 12.2c-.2.6-1.2 1.2-1.8 1.3-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.5c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.3.1.6-.1 1Z"/></svg>
               </span>
@@ -386,7 +388,7 @@
             </a>
 
             <!-- Instagram -->
-            <a class="channel channel--ig" href="https://instagram.com/yourpage" target="_blank" rel="noopener">
+            <a class="channel channel--ig" data-contact href="https://instagram.com/yourpage" target="_blank" rel="noopener">
               <span class="channel__icon">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
               </span>
@@ -415,6 +417,9 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=5"></script>
+  <!-- Демо-банер: видно лише поки на <html> стоїть data-demo -->
+  <div class="demo-banner" role="note" data-toast="Это демо: контакты не активны.">Демонстрационный сайт — портфолио-проект. Услуги не оказываются, клиника и её данные вымышлены.</div>
+
+  <script src="../assets/js/main.js?v=6"></script>
 </body>
 </html>

@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 
-# Sitemap (демо-домен GitHub Pages; замініть на свій при переїзді на бойовий хостинг)
-Sitemap: https://yanisdigital.github.io/case-stomatology-Odesa/sitemap.xml
+# Демо-режим: сторінки закриті від індексації мета-тегом noindex.
+# Сканування навмисно дозволене — інакше пошуковик не побачить noindex.
+# Sitemap у демо не оголошуємо, щоб не надсилати сторінки з noindex.
+# Для бойового запуску розкоментуйте рядок нижче (і замініть домен):
+# Sitemap: https://yanisdigital.github.io/case-stomatology-Odesa/sitemap.xml
