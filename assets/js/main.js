@@ -22,6 +22,10 @@
     );
     if (!targets.length) return;
 
+    // Без анімації (системне «менше руху» або старий браузер) блоки
+    // просто лишаються видимими — клас .reveal їм не потрібен.
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+
     // Сусіди в одній сітці з'являються каскадом: кожен наступний
     // із затримкою 90 мс. Індекс рахуємо в межах батьківського блоку.
     var parents = [];
@@ -39,20 +43,102 @@
       counts[i]++;
     });
 
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      targets.forEach(function (el) { el.classList.add("is-in"); });
-      return;
+    // Після появи елемент має повернути собі власні ефекти. Поки на ньому
+    // висить .reveal, той перекриває transition-property (рамка й тінь
+    // змінюються рвано, затримка каскаду лишається) і transform: none
+    // глушить підйом при наведенні. Тому клас знімаємо, щойно поява
+    // закінчилась.
+    function release(el) {
+      el.classList.remove("reveal", "is-in");
+      el.style.transitionDelay = "";
     }
 
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-in");
-          io.unobserve(entry.target);
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.classList.add("is-in");
+        io.unobserve(el);
+
+        var released = false;
+        function done() {
+          if (released) return;
+          released = true;
+          el.removeEventListener("transitionend", onEnd);
+          release(el);
         }
+        function onEnd(ev) {
+          if (ev.target === el && ev.propertyName === "transform") done();
+        }
+        el.addEventListener("transitionend", onEnd);
+        setTimeout(done, 1800); // страховка, якщо transitionend не прийде
       });
     }, { threshold: 0.12 });
     targets.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- плавне розкриття FAQ ----------
+     Нативний <details> перемикається миттєво й анімувати висоту
+     його вмісту CSS-ом не дозволяє. Тому клік перехоплюємо й
+     анімуємо висоту самого блоку через Web Animations API.
+     Без JS або без API все працює як звичайний <details>. */
+  function initAccordion() {
+    if (reduceMotion) return; // «менше руху» — лишаємо миттєве нативне
+    var EASE = "cubic-bezier(.22, .8, .32, 1)";
+
+    document.querySelectorAll(".faq__item").forEach(function (details) {
+      var summary = details.querySelector("summary");
+      var answer = details.querySelector(".faq__a");
+      if (!summary || !answer || !details.animate) return;
+
+      var expanded = details.open; // логічний стан: куди йде анімація
+      var heightAnim = null;
+      var fadeAnim = null;
+
+      function stop() {
+        if (heightAnim) { heightAnim.cancel(); heightAnim = null; }
+        if (fadeAnim) { fadeAnim.cancel(); fadeAnim = null; }
+      }
+
+      summary.addEventListener("click", function (e) {
+        e.preventDefault(); // клавіатура (Enter/Space) теж дає click
+
+        // Де блок зараз — враховує й клік посеред попередньої анімації.
+        var startH = details.getBoundingClientRect().height;
+        stop();
+        expanded = !expanded;
+
+        // Вміст має бути в розмітці, щоб виміряти повну висоту.
+        details.open = true;
+        var fullH = details.getBoundingClientRect().height;
+        var collapsedH = fullH - answer.getBoundingClientRect().height;
+
+        details.classList.toggle("is-collapsing", !expanded);
+        details.style.overflow = "hidden";
+
+        var a = details.animate(
+          { height: [startH + "px", (expanded ? fullH : collapsedH) + "px"] },
+          { duration: expanded ? 420 : 320, easing: EASE, fill: "forwards" }
+        );
+        heightAnim = a;
+
+        // Закриваючись, відповідь встигає розчинитись до того, як її обріже.
+        if (!expanded) {
+          fadeAnim = answer.animate(
+            { opacity: [1, 0] },
+            { duration: 200, easing: "ease-out", fill: "forwards" }
+          );
+        }
+
+        a.onfinish = function () {
+          if (heightAnim !== a) return; // її вже замінила новіша анімація
+          details.open = expanded;
+          details.classList.remove("is-collapsing");
+          details.style.overflow = "";
+          stop();
+        };
+      });
+    });
   }
 
   /* ---------- лічильники у блоці статистики ---------- */
@@ -177,6 +263,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     initDemo();
     initReveal();
+    initAccordion();
     initCounters();
     initHeader();
     var y = document.getElementById("year");
