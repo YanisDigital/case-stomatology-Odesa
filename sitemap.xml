@@ -4,7 +4,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://yanisdigital.github.io/case-stomatology-Odesa/</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="uk" href="https://yanisdigital.github.io/case-stomatology-Odesa/" />
@@ -13,11 +13,29 @@
   </url>
   <url>
     <loc>https://yanisdigital.github.io/case-stomatology-Odesa/ru/</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="uk" href="https://yanisdigital.github.io/case-stomatology-Odesa/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://yanisdigital.github.io/case-stomatology-Odesa/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yanisdigital.github.io/case-stomatology-Odesa/" />
+  </url>
+  <url>
+    <loc>https://yanisdigital.github.io/case-stomatology-Odesa/privacy.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://yanisdigital.github.io/case-stomatology-Odesa/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://yanisdigital.github.io/case-stomatology-Odesa/ru/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yanisdigital.github.io/case-stomatology-Odesa/privacy.html" />
+  </url>
+  <url>
+    <loc>https://yanisdigital.github.io/case-stomatology-Odesa/ru/privacy.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://yanisdigital.github.io/case-stomatology-Odesa/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://yanisdigital.github.io/case-stomatology-Odesa/ru/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yanisdigital.github.io/case-stomatology-Odesa/privacy.html" />
   </url>
 </urlset>

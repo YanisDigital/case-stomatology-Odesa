@@ -286,6 +286,34 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .feature h3 { font-size: 1.1rem; margin: 14px 0 8px; }
 .feature p { color: var(--muted); font-size: .94rem; }
 
+/* ---------- команда лікарів ---------- */
+.team { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; max-width: 1040px; margin: 0 auto; }
+.doctor {
+  display: grid; grid-template-columns: 190px 1fr; gap: 26px; align-items: start;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px;
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out), border-color .3s ease;
+}
+.doctor:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--mint-200); }
+.doctor__photo { border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--mint-100); }
+.doctor__photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%;
+  transition: transform .7s var(--ease-out);
+}
+.doctor:hover .doctor__photo img { transform: scale(1.06); }
+.doctor__body { padding-top: 6px; }
+.doctor__role {
+  display: block; font-weight: 800; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--teal-600);
+}
+.doctor__name { font-size: 1.3rem; margin: 8px 0 10px; }
+.doctor__exp {
+  display: inline-block; padding: 4px 12px; border-radius: 100px;
+  font-weight: 700; font-size: .8rem; color: var(--teal-700); background: var(--mint-100);
+}
+.doctor__creds { margin-top: 16px; display: grid; gap: 9px; }
+.doctor__creds li { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; color: var(--ink-soft); line-height: 1.5; }
+.doctor__creds svg { flex: none; margin-top: 3px; color: var(--teal-500); }
+
 /* ---------- FAQ ---------- */
 .faq { max-width: 820px; margin: 0 auto; display: grid; gap: 14px; }
 .faq__item {
@@ -334,6 +362,11 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
   width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
   border: 3px solid #fff; box-shadow: var(--shadow-sm); flex: none;
 }
+/* фото тепер у лікаря в блоці команди — адміністратору іконка */
+.contacts__person-icon {
+  display: grid; place-items: center; flex: none; width: 64px; height: 64px; border-radius: 50%;
+  color: var(--teal-600); background: #fff; border: 3px solid #fff; box-shadow: var(--shadow-sm);
+}
 .contacts__person-text { display: flex; flex-direction: column; gap: 2px; }
 .contacts__person-text strong { font-size: .98rem; }
 .contacts__person-text span { font-size: .86rem; color: var(--muted); }
@@ -370,6 +403,22 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .logo--footer .logo__text strong { color: var(--teal-400); }
 .footer__copy { font-size: .92rem; color: #9fc4c1; }
 .footer__note { font-size: .82rem; color: #6f928f; }
+.footer__legal { font-size: .78rem; color: #7fa3a0; max-width: 640px; line-height: 1.55; }
+.footer__links a { font-size: .86rem; font-weight: 600; color: #cfe6e4; border-bottom: 1px solid rgba(207, 230, 228, .35); transition: color .2s ease, border-color .2s ease; }
+.footer__links a:hover { color: #fff; border-color: #fff; }
+
+/* ---------- сторінка політики конфіденційності ---------- */
+.legal { padding-block: clamp(40px, 7vw, 84px); }
+.legal__inner { max-width: 780px; }
+.legal__back { display: inline-block; margin-bottom: 26px; font-weight: 700; font-size: .9rem; color: var(--teal-600); }
+.legal__back:hover { color: var(--teal-700); }
+.legal h1 { font-size: clamp(1.9rem, 4.5vw, 2.8rem); }
+.legal__updated { margin-top: 10px; font-size: .88rem; color: var(--muted); }
+.legal h2 { font-size: 1.15rem; margin: 36px 0 12px; }
+.legal p, .legal li { color: var(--ink-soft); line-height: 1.7; }
+.legal p + p { margin-top: 12px; }
+.legal ul { list-style: disc; padding-left: 22px; margin: 10px 0 12px; display: grid; gap: 6px; }
+.legal li::marker { color: var(--teal-500); }
 
 /* =========================================================
    ДЕМО-РЕЖИМ (портфоліо)
@@ -389,6 +438,7 @@ html[data-demo] .demo-banner {
 /* футер не ховається під банером */
 html[data-demo] .site-footer { padding-bottom: calc(40px + var(--demo-h)); }
 html[data-demo] .demo-note { display: inline; font-weight: 500; color: var(--muted); }
+html[data-demo] .site-footer .demo-note { color: #8fb3b0; } /* на темному фоні футера */
 
 /* повідомлення при кліку на неактивний контакт */
 html[data-demo] .demo-toast {
@@ -466,6 +516,7 @@ html[data-demo] .demo-toast.is-shown { opacity: 1; transform: translate(-50%, 0)
   .services { grid-template-columns: repeat(2, 1fr); }
   .features { grid-template-columns: repeat(2, 1fr); }
   .contacts { grid-template-columns: 1fr; gap: 32px; }
+  .team { grid-template-columns: 1fr; max-width: 620px; }
   .about-media { gap: 18px; margin-bottom: 52px; }
   .about-media__item img { height: 250px; }
 }
@@ -482,6 +533,8 @@ html[data-demo] .demo-toast.is-shown { opacity: 1; transform: translate(-50%, 0)
   .hero__actions { width: 100%; }
   :root { --demo-h: 52px; } /* на телефоні текст банера — у два рядки */
   html[data-demo] .demo-banner { font-size: .72rem; padding: 9px 14px; }
+  .doctor { grid-template-columns: 1fr; gap: 18px; }
+  .doctor__photo { aspect-ratio: 5 / 4; }
   .faq__item { padding: 2px 18px; }
   .faq__q { font-size: .95rem; gap: 12px; padding: 17px 0; }
 }

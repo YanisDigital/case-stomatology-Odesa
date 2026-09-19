@@ -50,7 +50,7 @@
 
   <!-- ===== Styles ===== -->
   <!-- ?v= — версія для скидання кешу браузера після оновлень -->
-  <link rel="stylesheet" href="assets/css/style.css?v=8" />
+  <link rel="stylesheet" href="assets/css/style.css?v=9" />
 
   <!-- ===== Structured data: LocalBusiness ===== -->
   <script type="application/ld+json">
@@ -62,6 +62,10 @@
     "url": "https://yanisdigital.github.io/case-stomatology-Odesa/",
     "telephone": "+380000000000",
     "priceRange": "$$",
+    "employee": [
+      { "@type": "Person", "name": "Олена Бондар", "jobTitle": "Стоматолог-терапевт" },
+      { "@type": "Person", "name": "Марина Ткаченко", "jobTitle": "Лікар-ортодонт" }
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "вул. Прикладна, 1",
@@ -323,6 +327,52 @@
       </div>
     </section>
 
+    <!-- ================= TEAM ================= -->
+    <section class="section section--alt" id="team">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Наші лікарі</span>
+          <h2 class="section__title">Лікарі, які вас прийматимуть</h2>
+          <p class="section__lead">Знайомтеся до візиту: хто лікуватиме, яку освіту має лікар і в чому його спеціалізація. <span class="demo-note">· імена вигадані</span></p>
+        </div>
+
+        <div class="team">
+          <article class="doctor">
+            <div class="doctor__photo">
+              <img src="assets/img/doctor-1.jpg" width="568" height="683" loading="lazy"
+                   alt="Олена Бондар, стоматолог-терапевт" />
+            </div>
+            <div class="doctor__body">
+              <span class="doctor__role">Стоматолог-терапевт</span>
+              <h3 class="doctor__name">Олена Бондар</h3>
+              <span class="doctor__exp">Досвід 14 років</span>
+              <ul class="doctor__creds">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Вища освіта за спеціальністю «Стоматологія», інтернатура з терапевтичної стоматології</span></li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Лікування каналів під мікроскопом, художня реставрація</span></li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Щорічне підвищення кваліфікації з ендодонтії</span></li>
+              </ul>
+            </div>
+          </article>
+          <article class="doctor">
+            <div class="doctor__photo">
+              <img src="assets/img/doctor-2.jpg" width="515" height="575" loading="lazy"
+                   alt="Марина Ткаченко, лікар-ортодонт" />
+            </div>
+            <div class="doctor__body">
+              <span class="doctor__role">Лікар-ортодонт</span>
+              <h3 class="doctor__name">Марина Ткаченко</h3>
+              <span class="doctor__exp">Досвід 9 років</span>
+              <ul class="doctor__creds">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Вища освіта за спеціальністю «Стоматологія», інтернатура з ортодонтії</span></li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Брекет-системи та елайнери, дитяча ортодонтія</span></li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Курси з планування лікування елайнерами</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= CONTACTS ================= -->
     <section class="section" id="contacts">
       <div class="container">
@@ -344,8 +394,7 @@
             </ul>
 
             <div class="contacts__person">
-              <img src="assets/img/doctor-2.jpg" width="515" height="575" loading="lazy"
-                   alt="Адміністратор клініки ДентаЛюкс" />
+              <span class="contacts__person-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M21 16a2 2 0 0 1-2 2h-1a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h3v4Z"/><path d="M3 16a2 2 0 0 0 2 2h1a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H3v4Z"/><path d="M19 18v1a3 3 0 0 1-3 3h-3"/></svg></span>
               <div class="contacts__person-text">
                 <strong>Адміністратор клініки</strong>
                 <span>Відповість на питання та підбере зручний час візиту</span>
@@ -413,13 +462,15 @@
         <span class="logo__text">Дента<strong>Люкс</strong></span>
       </a>
       <p class="footer__copy">© <span id="year">2026</span> ДентаЛюкс · <span>Одеса</span></p>
+      <p class="footer__legal">ТОВ «ДентаЛюкс» · ЄДРПОУ 00000000 · Ліцензія МОЗ України на медичну практику № 000000 <span class="demo-note">· реквізити вигадані</span></p>
+      <p class="footer__links"><a href="privacy.html">Політика конфіденційності</a></p>
       <p class="footer__note">Стоматологія в Одесі. Усі права захищені.</p>
     </div>
   </footer>
 
   <!-- Демо-банер: видно лише поки на <html> стоїть data-demo -->
-  <div class="demo-banner" role="note" data-toast="Це демо: контакти не активні.">Демонстраційний сайт — портфоліо-проєкт. Послуги не надаються, клініка та її дані вигадані.</div>
+  <div class="demo-banner" role="note" data-toast="Це демо: контакти не активні.">Демонстраційний сайт — портфоліо-проєкт. Послуги не надаються, клініка, лікарі та реквізити вигадані.</div>
 
-  <script src="assets/js/main.js?v=8"></script>
+  <script src="assets/js/main.js?v=9"></script>
 </body>
 </html>
