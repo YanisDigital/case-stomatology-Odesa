@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 382" width="400" height="382" role="img" aria-label="Зуб із брекетами">
+  <g fill="none" stroke="#333333" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M128,138 C122,92 152,66 186,76 C194,79 206,79 214,76 C250,64 282,92 274,138 C270,178 262,214 254,248 C248,280 246,316 226,318 C210,319 207,292 204,274 C203,264 197,264 196,274 C193,292 190,319 174,318 C154,316 152,280 146,248 C138,214 130,178 128,138 Z" fill="#effbfa"/>
+    <path d="M150,98 q14,-14 34,-10"/>
+    <path d="M168,138 q10,-12 20,0"/>
+    <path d="M214,138 q10,-12 20,0"/>
+    <circle cx="158" cy="160" r="10" fill="#fbc7dd" stroke="none"/>
+    <circle cx="244" cy="160" r="10" fill="#fbc7dd" stroke="none"/>
+    <path d="M134,196 C118,188 104,178 96,166"/>
+    <path d="M80,164 c-9,-6 -8,-20 3,-21 c1,-9 13,-11 16,-2 c9,-2 13,10 5,16 c-4,6 -16,11 -24,7 z" fill="#effbfa" transform="translate(0,0)"/>
+    <path d="M268,196 C284,188 298,178 306,166"/>
+    <path d="M322,164 c9,-6 8,-20 -3,-21 c-1,-9 -13,-11 -16,-2 c-9,-2 -13,10 -5,16 c4,6 16,11 24,7 z" fill="#effbfa" transform="translate(0,0)"/>
+    <path d="M150,344 q12,9 26,5"/>
+    <path d="M226,349 q14,-2 24,-12"/>
+    <path d="M174,152 Q201,194 228,152 Z" fill="#ffffff"/>
+    <path d="M181,161 L221,161" stroke="#6fcfcb" stroke-width="4"/>
+    <rect x="181" y="156" width="10" height="10" rx="2" fill="#c9f1ef" stroke-width="3"/>
+    <rect x="196" y="156" width="10" height="10" rx="2" fill="#c9f1ef" stroke-width="3"/>
+    <rect x="211" y="156" width="10" height="10" rx="2" fill="#c9f1ef" stroke-width="3"/>
+    <path d="M0,-14 C2,-4 4,-2 14,0 C4,2 2,4 0,14 C-2,4 -4,2 -14,0 C-4,-2 -2,-4 0,-14 Z" fill="#a6e8e6" stroke-width="3" transform="translate(300,88) scale(0.8)"/>
+  </g>
+</svg>

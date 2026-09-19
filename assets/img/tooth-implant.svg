@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 382" width="400" height="382" role="img" aria-label="Коронка на імпланті">
+  <g fill="none" stroke="#333333" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M170,234 L232,234 L222,304 Q201,326 180,304 Z" fill="#c9f1ef"/>
+    <path d="M166,256 L236,246"/>
+    <path d="M168,275 L234,265"/>
+    <path d="M173,294 L229,284"/>
+    <rect x="176" y="212" width="50" height="22" rx="5" fill="#a6e8e6"/>
+    <path d="M128,138 C122,92 152,66 186,76 C194,79 206,79 214,76 C250,64 282,92 274,138 C272,170 266,196 258,214 L144,214 C136,196 130,170 128,138 Z" fill="#effbfa"/>
+    <path d="M150,92 q14,-14 34,-10"/>
+    <path d="M168,132 q10,-12 20,0"/>
+    <path d="M214,132 q10,-12 20,0"/>
+    <circle cx="158" cy="154" r="10" fill="#fbc7dd" stroke="none"/>
+    <circle cx="244" cy="154" r="10" fill="#fbc7dd" stroke="none"/>
+    <path d="M180,152 q21,24 42,0"/>
+    <path d="M134,176 C118,168 104,158 96,146"/>
+    <path d="M80,164 c-9,-6 -8,-20 3,-21 c1,-9 13,-11 16,-2 c9,-2 13,10 5,16 c-4,6 -16,11 -24,7 z" fill="#effbfa" transform="translate(0,-20)"/>
+    <path d="M268,176 C284,168 298,158 306,146"/>
+    <path d="M322,164 c9,-6 8,-20 -3,-21 c-1,-9 -13,-11 -16,-2 c-9,-2 -13,10 -5,16 c4,6 16,11 24,7 z" fill="#effbfa" transform="translate(0,-20)"/>
+    <path d="M0,-14 C2,-4 4,-2 14,0 C4,2 2,4 0,14 C-2,4 -4,2 -14,0 C-4,-2 -2,-4 0,-14 Z" fill="#a6e8e6" stroke-width="3" transform="translate(312,262) scale(0.8)"/>
+  </g>
+</svg>

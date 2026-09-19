@@ -241,12 +241,15 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 /* деталі послуги, що розгортаються (нативний <details>, без JS) */
 .svc-more { margin-top: 15px; border-top: 1px solid var(--line); padding-top: 12px; }
 .svc-more > summary {
-  display: flex; align-items: center; gap: 10px; cursor: pointer; list-style: none;
+  /* padding-right тримає підпис лівіше за маскота в куті: задовгий підпис
+     переноситься на другий рядок замість того, щоб налізти на малюнок */
+  display: flex; align-items: center; gap: 10px; cursor: pointer; list-style: none; padding-right: 44px;
   font-weight: 700; font-size: .88rem; color: var(--teal-600); transition: color .2s ease;
 }
 .svc-more > summary::-webkit-details-marker { display: none; } /* Safari */
 .svc-more > summary::after {
-  content: ""; flex: none; margin-left: auto; width: 8px; height: 8px;
+  /* шеврон одразу за текстом, а не в правому куті: там маскот */
+  content: ""; flex: none; width: 8px; height: 8px;
   border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
   transform: rotate(45deg) translateY(-2px); transition: transform .42s var(--ease-out);
 }
@@ -257,19 +260,23 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .svc-more p { margin-top: 11px; font-size: .92rem; }
 .svc-more[open] p { animation: detailIn .35s var(--ease-out); }
 
-/* kids card with mascot art */
-.service-card--kids { position: relative; overflow: hidden; }
-.service-card--kids p { position: relative; max-width: 75%; }
-/* у розгорнутому стані картка виростає, і маскот опиняється поруч
-   з останніми рядками — звужуємо текст, щоб вони не наїжджали */
-.service-card--kids .svc-more { position: relative; z-index: 1; }
-.service-card--kids .svc-more p { max-width: 64%; }
+/* маскот-зуб у правому нижньому куті кожної картки */
+.service-card { position: relative; overflow: hidden; }
+.service-card > p, .svc-more { position: relative; z-index: 1; } /* текст над малюнком */
 .service-card__art {
-  position: absolute; right: -26px; bottom: -20px; width: 130px; height: auto; z-index: 0;
+  /* ширина від ширини картки: у вузьких картках (3 колонки на ~900–1050px)
+     фіксовані 130px налазили на довгі підписи на кшталт «Як підбираємо конструкцію» */
+  position: absolute; right: -26px; bottom: -20px; width: clamp(100px, 34%, 130px); height: auto; z-index: 0;
   transform: rotate(-8deg); opacity: .9; pointer-events: none;
-  transition: transform .3s ease;
+  transition: transform .3s ease, opacity .3s ease;
 }
-.service-card--kids:hover .service-card__art { transform: rotate(0deg) scale(1.06); }
+.service-card:hover .service-card__art { transform: rotate(0deg) scale(1.06); }
+/* поки деталі розгорнуті, маскот поступається місцем — інакше останні рядки
+   тексту налазили б на нього. :not(.is-collapsing) повертає його одразу
+   на початку закриття, а не в кінці анімації */
+.service-card:has(.svc-more[open]:not(.is-collapsing)) .service-card__art {
+  opacity: 0; transform: translate(26px, 26px) rotate(-8deg);
+}
 
 /* features */
 .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }

@@ -57,5 +57,6 @@ python -m http.server 8080
 | `doctor-1.jpg`, `doctor-2.jpg` | безкоштовний стоковий фотобанк; колір одягу частково змінено за допомогою ШІ (Nano Banana) |
 | `tooth-rope.png`, `tooth-mascot.png` | Pixabay (Pixabay Content License) |
 | `og-image.png`, `favicon.svg`, `favicon.ico` | створені для цього проєкту, MIT |
+| `tooth-fix.svg`, `tooth-implant.svg`, `tooth-crown.svg`, `tooth-brush.svg`, `tooth-braces.svg` | намальовані для цього проєкту у стилі `tooth-rope.png`, MIT |
 
 Люди на фото — моделі зі стоку, а не співробітники реальної клініки. Портрети `doctor-1.jpg` і `doctor-2.jpg` оброблено ШІ (змінено колір одягу), тож це не оригінальні знімки.
