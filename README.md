@@ -52,8 +52,8 @@ python -m http.server 8080
 | Файл | Джерело |
 |---|---|
 | `clinic-xray.jpg`, `clinic-care.jpg` | Pexels (Pexels License) |
-| `doctor-1.jpg`, `doctor-2.jpg` | стокові фото |
+| `doctor-1.jpg`, `doctor-2.jpg` | безкоштовний стоковий фотобанк; колір одягу частково змінено за допомогою ШІ (Nano Banana) |
 | `tooth-rope.png`, `tooth-mascot.png` | Pixabay (Pixabay Content License) |
 | `og-image.png`, `favicon.svg`, `favicon.ico` | створені для цього проєкту, MIT |
 
-Люди на фото — моделі зі стоку, а не співробітники реальної клініки.
+Люди на фото — моделі зі стоку, а не співробітники реальної клініки. Портрети `doctor-1.jpg` і `doctor-2.jpg` оброблено ШІ (змінено колір одягу), тож це не оригінальні знімки.
