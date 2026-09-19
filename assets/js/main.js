@@ -77,7 +77,7 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- плавне розкриття FAQ ----------
+  /* ---------- плавне розкриття <details> (FAQ і деталі послуг) ----------
      Нативний <details> перемикається миттєво й анімувати висоту
      його вмісту CSS-ом не дозволяє. Тому клік перехоплюємо й
      анімуємо висоту самого блоку через Web Animations API.
@@ -86,9 +86,9 @@
     if (reduceMotion) return; // «менше руху» — лишаємо миттєве нативне
     var EASE = "cubic-bezier(.22, .8, .32, 1)";
 
-    document.querySelectorAll(".faq__item").forEach(function (details) {
+    document.querySelectorAll(".faq__item, .svc-more").forEach(function (details) {
       var summary = details.querySelector("summary");
-      var answer = details.querySelector(".faq__a");
+      var answer = details.querySelector(".faq__a") || details.querySelector("p");
       if (!summary || !answer || !details.animate) return;
 
       var expanded = details.open; // логічний стан: куди йде анімація
@@ -110,8 +110,14 @@
 
         // Вміст має бути в розмітці, щоб виміряти повну висоту.
         details.open = true;
-        var fullH = details.getBoundingClientRect().height;
-        var collapsedH = fullH - answer.getBoundingClientRect().height;
+        var box = details.getBoundingClientRect();
+        var fullH = box.height;
+        // Згорнута висота = усе до низу заголовка + нижні padding/border.
+        // Міряємо від заголовка, а не віднімаємо висоту відповіді: у відповіді
+        // може бути зовнішній відступ (у послугах він є), який така різниця не врахує.
+        var cs = getComputedStyle(details);
+        var collapsedH = summary.getBoundingClientRect().bottom - box.top +
+          parseFloat(cs.paddingBottom) + parseFloat(cs.borderBottomWidth);
 
         details.classList.toggle("is-collapsing", !expanded);
         details.style.overflow = "hidden";

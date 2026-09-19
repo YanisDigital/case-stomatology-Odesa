@@ -248,9 +248,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .svc-more > summary::after {
   content: ""; flex: none; margin-left: auto; width: 8px; height: 8px;
   border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
-  transform: rotate(45deg) translateY(-2px); transition: transform .3s var(--ease-out);
+  transform: rotate(45deg) translateY(-2px); transition: transform .42s var(--ease-out);
 }
-.svc-more[open] > summary::after { transform: rotate(-135deg) translateY(-2px); }
+/* :not(.is-collapsing) — під час закриття open ще стоїть, шеврон має повертатись одразу */
+.svc-more[open]:not(.is-collapsing) > summary::after { transform: rotate(-135deg) translateY(-2px); }
 .svc-more > summary:hover { color: var(--teal-700); }
 .svc-more > summary:focus-visible { outline: none; border-radius: 6px; box-shadow: var(--ring); }
 .svc-more p { margin-top: 11px; font-size: .92rem; }
